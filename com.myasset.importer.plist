@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.myasset.importer</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>PROJECT_DIR/scripts/auto_import.sh</string>
+    </array>
+
+    <!-- launchd 최소 PATH 보강: Anaconda/Homebrew python3 를 찾도록 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/anaconda3/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>LANG</key>
+        <string>ko_KR.UTF-8</string>
+    </dict>
+
+    <!-- incoming/ 폴더에 파일이 생기면 즉시 실행 -->
+    <key>WatchPaths</key>
+    <array>
+        <string>PROJECT_DIR/incoming</string>
+    </array>
+
+    <!-- 백업: 30초마다도 한 번씩 확인 (WatchPaths 이벤트 누락 대비) -->
+    <key>StartInterval</key>
+    <integer>30</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/myasset_import.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/myasset_import.log</string>
+</dict>
+</plist>

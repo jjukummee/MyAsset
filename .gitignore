@@ -1,0 +1,39 @@
+.DS_Store
+.claude/
+.vite/
+
+# Swift Package Manager
+.build/
+MyAssetApp/.build/
+.swiftpm/
+Package.resolved
+
+# Xcode / macOS build products
+DerivedData/
+build/
+*.xcuserstate
+*.xcuserdata/
+
+# Local environment files
+.env
+.env.*
+
+# Bank import runtime folders & data files
+incoming/
+imported/
+failed/
+*.xls
+*.xlsx
+
+# Runtime / personal data files (not for VCS)
+weather.json
+weather_current.json
+location.json
+benefits.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Local transaction rules
+/scripts/manual_excludes.json
